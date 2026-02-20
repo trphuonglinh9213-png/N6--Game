@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải Mã Bức Tranh</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧩 Giải Mã Bức Tranh</h1>
+            <button id="themeToggle">🌙</button>
+        </header>
+
+        <div class="tab-container">
+            <button class="tab-btn active" data-tab="edit-image">📸 Ảnh</button>
+            <button class="tab-btn" data-tab="edit-questions">📝 Câu Hỏi</button>
+            <button class="tab-btn" data-tab="answer-mode">🎯 Chơi</button>
+        </div>
+
+        <div class="tab-content active" id="edit-image">
+            <div class="card">
+                <input type="file" id="imageInput" accept="image/*">
+                <div id="puzzleConfig" style="display:none; margin-top:10px;">
+                    <input type="number" id="pieceCount" value="20" style="width:50px">
+                    <button id="generatePuzzle">Tạo Puzzle</button>
+                </div>
+                <canvas id="puzzleCanvas" width="800" height="450" style="display:none; width:100%"></canvas>
+            </div>
+        </div>
+
+        <div class="tab-content" id="edit-questions">
+            <div class="card">
+                <form id="questionForm">
+                    <select id="pieceNumber" required><option value="">Mảnh số</option></select>
+                    <textarea id="questionText" placeholder="Câu hỏi" required></textarea>
+                    <div class="options">
+                        <input type="text" id="option0" placeholder="Đúng" required>
+                        <input type="text" id="option1" placeholder="Sai" required>
+                        <input type="text" id="option2" placeholder="Sai" required>
+                        <input type="text" id="option3" placeholder="Sai" required>
+                    </div>
+                    <button type="submit">Lưu</button>
+                </form>
+                <div id="questionList"></div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="answer-mode">
+            <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+            <div class="game-container">
+                <canvas id="gameCanvas" width="800" height="450"></canvas>
+                <div class="quiz-panel">
+                    <div id="quizContent"><button id="startQuiz">Bắt Đầu</button></div>
+                    <div id="questionContent" style="display:none;">
+                        <h3 id="questionDisplay"></h3>
+                        <div id="answerOptions"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
